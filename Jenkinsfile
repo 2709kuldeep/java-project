@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage('build') {
 			steps {
-				cd /root/my-app/ ; mvn package
+			  mvn package
 				}
 			}
 		}
