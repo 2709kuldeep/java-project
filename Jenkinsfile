@@ -18,8 +18,8 @@ pipeline {
 	stage ('Build') {
             steps {
                 sh 'mvn clean' 
-		
-		sh 'mvn package'	
+		sh 'mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false'	
+		sh 'mvn -f my-app/pom.xml package'	
             }
             post {
                 success {
