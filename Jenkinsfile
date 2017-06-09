@@ -20,7 +20,7 @@ pipeline {
            
 		sh 'mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false'
 		
-		sh 'cd my-app'
+		sh 'cd /var/lib/jenkins/workspace/My\ Java\ Project/my-app'
 		sh 'mvn package'	
             }
             post {
