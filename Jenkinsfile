@@ -17,10 +17,11 @@ pipeline {
         
 	stage ('Build') {
             steps {
-                sh '''
-			mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-			mvn package
-		'''
+           
+		sh 'mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false'
+		
+		sh 'cd my-app'
+		sh 'mvn package'	
             }
             post {
                 success {
