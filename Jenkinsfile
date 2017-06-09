@@ -18,8 +18,8 @@ pipeline {
 	stage ('Build') {
             steps {
                 sh '''
-			mvn clean dependency:copy-dependencies package
 			mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+			cd /var/lib/jenkins/workspace/My\ Java\ Project/my-app
 			mvn package
 		'''
             }
