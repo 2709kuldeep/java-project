@@ -19,7 +19,6 @@ pipeline {
             steps {
                 sh '''
 			mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-			cd /var/lib/jenkins/workspace/My\ Java\ Project/my-app
 			mvn package
 		'''
             }
