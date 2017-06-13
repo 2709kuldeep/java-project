@@ -30,8 +30,8 @@ pipeline {
 	stage ('deploy'){
 
 	steps {
-		sh "mkdir -p /var/www/html/all/${env.BRANCH_NAME}"
-		sh "cp my-app/target/my-app-1.0-SNAPSHOT.jar /var/www/html/all/${env.BRANCH_NAME}/"
+		sh "sudo mkdir -p /var/www/html/all/${env.BRANCH_NAME}"
+		sh "sudo cp my-app/target/my-app-1.0-SNAPSHOT.jar /var/www/html/all/${env.BRANCH_NAME}/"
 	
 	
 }
