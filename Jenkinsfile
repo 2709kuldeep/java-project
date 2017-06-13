@@ -26,6 +26,38 @@ pipeline {
                 }
         }
 }
+
+	stage ('deploy'){
+
+	step {
+		sh "mkdir -p /var/www/html/all/${env.BRANCH_NAME}"
+		sh "cp my-app/target/my-app-1.0-SNAPSHOT.jar /var/www/html/all/${env.BRANCH_NAME}/"
+	
+	
+}
+}
+
+	stage ('Promote Development branch to master') {
+		when {
+
+			branch 'development'
+	
+		}
+		step {
+
+		echo "stashing any local changes"
+		sh 'git stash'
+		echo "checking out development branch"
+		sh 'git checkout development'
+		echo "checking out master branch"
+		sh 'git checkout master'
+		echo "Merging development into master branch"
+		sh 'git merge development'
+		echo "pushing to master branch"
+		sh 'git push origin master'
+		}
+	
+	}
 }
 }
     
