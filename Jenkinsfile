@@ -29,7 +29,7 @@ pipeline {
 
 	stage ('deploy'){
 
-	step {
+	steps {
 		sh "mkdir -p /var/www/html/all/${env.BRANCH_NAME}"
 		sh "cp my-app/target/my-app-1.0-SNAPSHOT.jar /var/www/html/all/${env.BRANCH_NAME}/"
 	
@@ -43,7 +43,7 @@ pipeline {
 			branch 'development'
 	
 		}
-		step {
+		steps {
 
 		echo "stashing any local changes"
 		sh 'git stash'
