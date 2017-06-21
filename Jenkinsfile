@@ -55,6 +55,8 @@ pipeline {
 		sh 'git merge development'
 		echo "pushing to master branch"
 		sh 'git push origin master'
+		echo "Result of JAR file"
+		sh 'java -cp my-app/target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App'
 		}
 	
 	}
